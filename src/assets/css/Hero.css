@@ -1,0 +1,16 @@
+.hero-wrapper {
+  margin-top: 9rem;
+}
+
+.main-title {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.main-description {
+  color: #9f9fa0;
+  text-align: center;
+}
