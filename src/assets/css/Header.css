@@ -1,11 +1,19 @@
 .header {
   padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  /* background-color: red; */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #29263f;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* background-color: #19191911; */
+  /* backdrop-filter: blur(12px); */
 }
 
 .navbar-logo > img {
@@ -103,7 +111,7 @@
 
 .navbar-mobile-menu > ul li {
   padding: 1rem;
-  border-bottom: 1px solid blue;
+  border-bottom: 1px solid #29263f;
 }
 
 .navbar-item-mobile {

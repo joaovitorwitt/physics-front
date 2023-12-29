@@ -15,13 +15,35 @@
 :root {
   --heading-text-color: #ffffff;
   --paragraph-color: #9f9fa0;
-
   --paragraph-font-family: "Merriweather", serif;
   --heading-font-family: "Montserrat", sans-serif;
 }
 
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(236, 236, 236, 0.164);
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(236, 236, 236, 0.411);
+}
+
 body {
   background: #101010;
+  height: 200vh;
 }
 
 a {
