@@ -6,6 +6,7 @@
   /* background-color: red; */
   backdrop-filter: blur(12px);
   border-bottom: 1px solid #29263f;
+  z-index: 999;
 }
 
 .navbar {
@@ -93,6 +94,7 @@
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   display: none;
+  z-index: 999;
 }
 
 @keyframes openMobile {
