@@ -28,31 +28,9 @@ export default function Header() {
           <div className="navbar-logo">
             <img src={Logo} alt="" />
           </div>
-
-          {/* <ul className="navbar-links">
-            <li>
-              <Link className="navbar-item" to={"/"}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className="navbar-item" to={"/"}>
-                Author
-              </Link>
-            </li>
-            <li>
-              <Link className="navbar-item" to={"/"}>
-                Company
-              </Link>
-            </li>
-          </ul> */}
-
           <div className="navbar-actions">
-            <Link to={"/register"}>
-              <button className="btn signup-btn">Sign Up</button>
-            </Link>
             <Link to={"/login"}>
-              <button className="btn login-btn">Login</button>
+              <button className="btn login-btn">Start Learning</button>
             </Link>
             <button className="display-navbar-menu" onClick={toggleMobileMenu}>
               {/* if mobile menu is active change the icon to the close */}
