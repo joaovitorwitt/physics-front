@@ -7,6 +7,12 @@ import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 export default function Hero() {
+  // position a star at a random place inside the hero
+  // after some time the star start to get suck by the black hole
+
+  let randomLeftValue = (Math.random() * (90 - 10) + 10).toFixed(9);
+  let randomTopValue = (Math.random() * (90 - 10) + 10).toFixed(9);
+
   return (
     <div className="header-hero">
       {/* BLACK HOLE */}
@@ -18,6 +24,21 @@ export default function Hero() {
           <div className="backdrop"></div>
           <div className="shadow"></div>
         </div>
+      </div>
+      {/* STARS ORBITING */}
+      <div className="stars-overflow">
+        {[...Array(50)].map((_, index) => {
+          const randomLeftValue = (Math.random() * (90 - 10) + 10).toFixed(9);
+          const randomTopValue = (Math.random() * (90 - 10) + 10).toFixed(9);
+
+          return (
+            <div
+              key={index}
+              className="star-animation"
+              style={{ top: `${randomTopValue}%`, left: `${randomLeftValue}%` }}
+            ></div>
+          );
+        })}
       </div>
       {/* HEADER */}
       <section className="header">

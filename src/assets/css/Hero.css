@@ -18,6 +18,68 @@
   z-index: -1;
 }
 
+/* STARS FEATURE */
+.stars-overflow {
+  z-index: -2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  overflow: hidden;
+  height: 300px;
+  animation-duration: 70s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: heroBlackHoleStarsRotate;
+  animation-timeline: auto;
+  animation-range-start: normal;
+}
+
+.star-animation {
+  position: absolute;
+  width: 2px;
+  top: 50%;
+  height: 2px;
+  border-radius: 5px;
+  background-color: white;
+  --transform: translate(-188.14696997068336px, 25.833966049042477px);
+  animation-name: blackHoleOrbit;
+  animation-duration: 10.7;
+  animation-delay: 4.7;
+}
+
+.stars-overflow div {
+  animation: blackHoleOrbit linear infinite;
+}
+
+@keyframes blackHoleOrbit {
+  0% {
+    background-color: white;
+    transform: translateZ(0) translate(0) scale(1);
+  }
+  10% {
+    background-color: white;
+  }
+  100% {
+    background-color: white;
+    transform: translateZ(0) translate(200px, -25px) scale(0.5);
+  }
+}
+
+@keyframes heroBlackHoleStarsRotate {
+  0% {
+    transform: translateZ(0) translate(-50%, -50%) rotate(0);
+  }
+
+  100% {
+    transform: translateZ(0) translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
 /* HEADER */
 .header {
   grid-area: header;
