@@ -4,14 +4,33 @@ import Logo from "../assets/images/physics-platform-logo.png";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  // position a star at a random place inside the hero
-  // after some time the star start to get suck by the black hole
-
-  let randomLeftValue = (Math.random() * (90 - 10) + 10).toFixed(9);
-  let randomTopValue = (Math.random() * (90 - 10) + 10).toFixed(9);
+  const [stars, setStars] = useState([]);
+  useEffect(() => {
+    const newStars = Array.from({ length: 100 }, (_, index) => {
+      const randomAnimationDuration = (Math.random() * (11 - 4) + 4).toFixed(2);
+      const randomAnimationDelay = (Math.random() * (5 - 1) + 1).toFixed(2);
+      const randomLeftValue = (Math.random() * (90 - 10) + 10).toFixed(9);
+      const randomTopValue = (Math.random() * (90 - 10) + 10).toFixed(9);
+      return {
+        id: index,
+        left: randomLeftValue,
+        top: randomTopValue,
+        randomAnimationDuration,
+        randomAnimationDelay,
+      };
+    });
+    setStars(newStars);
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const star = newStars[0];
+    const dx = centerX - (star.left / 100) * window.innerWidth;
+    const dy = centerY - (star.top / 100) * window.innerHeight;
+    document.documentElement.style.setProperty("--translate-x", `${dx}px`);
+    document.documentElement.style.setProperty("--translate-y", `${dy}px`);
+  }, []);
 
   return (
     <div className="header-hero">
@@ -27,18 +46,18 @@ export default function Hero() {
       </div>
       {/* STARS ORBITING */}
       <div className="stars-overflow">
-        {[...Array(50)].map((_, index) => {
-          const randomLeftValue = (Math.random() * (90 - 10) + 10).toFixed(9);
-          const randomTopValue = (Math.random() * (90 - 10) + 10).toFixed(9);
-
-          return (
-            <div
-              key={index}
-              className="star-animation"
-              style={{ top: `${randomTopValue}%`, left: `${randomLeftValue}%` }}
-            ></div>
-          );
-        })}
+        {stars.map((star) => (
+          <div
+            key={star.id}
+            className="star-animation"
+            style={{
+              top: `${star.top}%`,
+              left: `${star.left}%`,
+              animationDuration: `${star.randomAnimationDuration}s`,
+              animationDelay: `${star.randomAnimationDelay}s`,
+            }}
+          ></div>
+        ))}
       </div>
       {/* HEADER */}
       <section className="header">

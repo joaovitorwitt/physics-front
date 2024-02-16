@@ -1,3 +1,8 @@
+:root {
+  --translate-x: 0px;
+  --translate-y: 0px;
+}
+
 .header-hero {
   width: 100vw;
   height: 100vh;
@@ -24,9 +29,9 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 700px;
+  width: 100%;
   overflow: hidden;
-  height: 300px;
+  height: 500px;
   animation-duration: 70s;
   animation-timing-function: linear;
   animation-delay: 0s;
@@ -35,6 +40,7 @@
   animation-fill-mode: none;
   animation-play-state: running;
   animation-name: heroBlackHoleStarsRotate;
+  transform: translate(-50%, -50%);
   animation-timeline: auto;
   animation-range-start: normal;
 }
@@ -46,14 +52,11 @@
   height: 2px;
   border-radius: 5px;
   background-color: white;
-  --transform: translate(-188.14696997068336px, 25.833966049042477px);
+  transform: translateZ(0) translate(0) scale(1);
   animation-name: blackHoleOrbit;
-  animation-duration: 10.7;
-  animation-delay: 4.7;
-}
-
-.stars-overflow div {
-  animation: blackHoleOrbit linear infinite;
+  animation-duration: 10.7s;
+  animation-delay: 4.7s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes blackHoleOrbit {
@@ -66,11 +69,12 @@
   }
   100% {
     background-color: white;
-    transform: translateZ(0) translate(200px, -25px) scale(0.5);
+    transform: translateZ(0) translate(var(--translate-x), var(--translate-y))
+      scale(0.5);
   }
 }
 
-@keyframes heroBlackHoleStarsRotate {
+/* @keyframes heroBlackHoleStarsRotate {
   0% {
     transform: translateZ(0) translate(-50%, -50%) rotate(0);
   }
@@ -78,7 +82,7 @@
   100% {
     transform: translateZ(0) translate(-50%, -50%) rotate(-360deg);
   }
-}
+} */
 
 /* HEADER */
 .header {
